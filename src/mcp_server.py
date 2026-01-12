@@ -31,7 +31,10 @@ async def analyze_stock_tool(code: str):
     logger.info(f"分析股票 {fullcode}")
     signal_engine = SignalEngine()
     context = signal_engine.evaluate(fullcode)
-    result = context['result']
+    result = context.get('result')
+    if result is None:
+        return f"无法获取股票 {fullcode} 的数据，请检查股票代码是否正确或稍后重试。"
+    
     logger.info(f"股票 {fullcode} 分析结果: {result}")
     data = stock_data_source.get_company_profile(extract_code(fullcode))
     stock_name = data.get('股票简称') 

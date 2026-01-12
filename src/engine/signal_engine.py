@@ -10,6 +10,12 @@ class SignalEngine:
     def evaluate(self, symbol: str):
         context = {}
         context["kline"] = stock_data_source.get_kline(symbol)
+        
+        if context["kline"].empty:
+            logger.warning(f"Empty kline data for {symbol}")
+            context['result'] = None
+            return context
+
         structure_signal = StructureSignal()
         structure_data = structure_signal.evaluate(context)
         # logger.debug(structure_data)

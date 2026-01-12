@@ -26,10 +26,8 @@ class StockDataSource:
             if period == "daily":
                 code = symbol[2:]
                 if (
-                    symbol.startswith("sz15")
-                    or symbol.startswith("sh51")
-                    or symbol.startswith("sz16")
-                    or symbol.startswith("sh58")
+                    symbol.startswith("sz1")
+                    or symbol.startswith("sh5")
                 ):
                     # ETF/LOF
                     df = ak.fund_etf_hist_em(

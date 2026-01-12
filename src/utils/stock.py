@@ -9,7 +9,12 @@ def get_fullcode(code: str) -> str:
         or code.startswith("16")
     ):
         return f"sz{code}"
-    elif code.startswith("60") or code.startswith("51"):
+    elif (
+        code.startswith("60")
+        or code.startswith("51")
+        or code.startswith("56")
+        or code.startswith("58")
+    ):
         return f"sh{code}"
     else:
         return code
