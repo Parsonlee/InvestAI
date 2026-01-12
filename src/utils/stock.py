@@ -1,9 +1,15 @@
 import re
 
+
 def get_fullcode(code: str) -> str:
-    if code.startswith("00") or code.startswith("30"):
+    if (
+        code.startswith("00")
+        or code.startswith("30")
+        or code.startswith("15")
+        or code.startswith("16")
+    ):
         return f"sz{code}"
-    elif code.startswith("60"):
+    elif code.startswith("60") or code.startswith("51"):
         return f"sh{code}"
     else:
         return code

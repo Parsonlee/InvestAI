@@ -1,8 +1,8 @@
 llm:
   provider: openai
-  base_model: qwen-flash
-  reason_model: qwen-plus
-  base_url: https://dashscope.aliyuncs.com/compatible-mode/v1
+  base_model: glm-4.7
+  reason_model: glm-4.7
+  base_url: https://open.bigmodel.cn/api/coding/paas/v4
   api_key: ${OPENAI_API_KEY}
 
 schedule:
