@@ -1,9 +1,8 @@
-import pandas as pd
-from typing import List, Dict, Any
-from datacenter.stock import stock_data_source, StockDataSource
+from typing import Any, Dict
+
+from datacenter.market.stock import StockDataSource, stock_data_source
 from log import logger
-from config import Config
-import numpy as np
+
 
 class StockAnalysisService:
     """
@@ -14,7 +13,7 @@ class StockAnalysisService:
     def __init__(self, data_source: StockDataSource = stock_data_source):
         self.data_source: StockDataSource = data_source
 
-    def calc_momentum(self, symbol: str, period: str = "daily", window: int = 20, price_col: str = "收盘") -> Dict[str, Any]:
+    def calc_momentum(self, symbol: str, period: str = "daily", window: int = 20, price_col: str = "close") -> Dict[str, Any]:
         """
         基于K线计算股票动量指标
         :param symbol: 股票代码
