@@ -23,7 +23,7 @@ services:
     volumes:
       - ../conf:/app/conf
     ports:
-      - 8888:8888
+      - 8989:8888
 
     env_file:
       - ../.env
